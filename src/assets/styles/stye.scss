@@ -8,6 +8,7 @@ $lightWhite: #F7F7F7;
 $mainGreen: #58D22D;
 $markRed: #FC2B5D;
 $linkBlue: #0FABEE;
+$mainGradient: linear-gradient(90deg, #09C272 0%, #7ED63E 100%);
 
 body, *{
   padding: 0;
@@ -207,6 +208,89 @@ body, *{
     a{
       text-decoration: none;
     }
+  }
+}
+
+.card{
+  width: 250px;
+  min-width: 250px;
+  background-color: $lightWhite;
+  overflow: hidden;
+  border-radius: 30px;
+  position: relative;
+  transition: 0.2s;
+  cursor: pointer;
+  &__img{
+    height: 150px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__text{
+    color: $black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 130px;
+    h4{
+      font-weight: 400;
+      text-transform: capitalize;
+      font-size: 22px;
+    }
+    p{
+      color: #9FA1AE;
+      font-size: 14px;
+    }
+    b{
+      font-size: 22px;
+      font-weight: 500;
+      span{
+        font-size: 14px;
+      }
+    }
+    .discount{
+      display: block;
+      text-decoration: line-through;
+      color: $markRed;
+      font-size: 13px;
+    }
+  }
+  &__addCart{
+    width: 50px;
+    height: 50px;
+    background: $mainGradient;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg{
+      color: #fff;
+    }
+  }
+  &__favorite{
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 100%;
+    svg{
+      width: 20px;
+    }
+  }
+  &:hover{
+    box-shadow: 0 40px 120px 0 rgba(71, 0, 95, 0.14);
   }
 }
 
@@ -613,8 +697,9 @@ body, *{
     }
     &__bg{
       width: 100%;
-      height: 400px;
+      height: 300px;
       @media screen and (max-width: 860px){
+        height: 400px;
         flex-direction: column;
         gap: 0;
       }
@@ -633,6 +718,22 @@ body, *{
     @media screen and (max-width: 860px){
       height: fit-content;
       margin-top: 50px;
+    }
+  }
+
+  .quick_menu{
+    margin-top: 80px;
+    h2{
+      text-align: center;
+    }
+
+    &__box{
+      display: flex;
+      gap: 30px;
+      overflow-x: hidden;
+      width: 100%;
+      margin-top: 50px;
+      padding-bottom: 10px;
     }
   }
 }

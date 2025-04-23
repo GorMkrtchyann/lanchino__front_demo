@@ -19,6 +19,7 @@ import bonusPhoneBg from '../../assets/images/phone_bg.svg'
 
 import {IconX, IconLogin2} from '@tabler/icons-react'
 import {Footer} from "../../components/footer";
+import {Card} from "../../components/card";
 
 
 
@@ -149,6 +150,19 @@ export const Home = () => {
                             <img src={infoDelivery} alt="food"/>
                             <p>You can order and receive your order very quickly</p>
                         </div>
+                    </div>
+                </div>
+
+                <div className="quick_menu">
+                    <h2>Quick Choose!</h2>
+
+                    <div className="quick_menu__box">
+                        <Card/>
+                        <Card/>
+                        <Card/>
+                        <Card/>
+                        <Card/>
+                        <Card/>
                     </div>
                 </div>
 
