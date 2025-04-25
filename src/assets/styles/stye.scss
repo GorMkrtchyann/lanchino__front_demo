@@ -294,6 +294,34 @@ body, *{
   }
 }
 
+.popup{
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  z-index: 10;
+  top: 30px;
+  justify-content: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  gap: 10px;
+  filter: drop-shadow(0 40px 120px rgba(71, 0, 95, 0.17));
+  &__box{
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+  }
+  &__close{
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
 .footer__cont{
   border-top: 2px solid $lightGrey;
   margin-top: 100px;
@@ -467,6 +495,7 @@ body, *{
 
 .home{
   margin-top: 90px;
+  background: #fff;
   &__slider{
     width: 100%;
     .carousel-status{
@@ -723,6 +752,7 @@ body, *{
 
   .quick_menu{
     margin-top: 80px;
+    position: relative;
     h2{
       text-align: center;
     }
@@ -730,10 +760,180 @@ body, *{
     &__box{
       display: flex;
       gap: 30px;
-      overflow-x: hidden;
+      overflow-x: scroll;
       width: 100%;
       margin-top: 50px;
-      padding-bottom: 10px;
+      padding-bottom: 30px;
+      scroll-behavior: smooth;
+      &::-webkit-scrollbar{
+        opacity: 0;
+      }
+      &__arrows{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        bottom: 45%;
+        z-index: 1;
+        //padding: 0 10px;
+        box-sizing: border-box;
+        .arrow{
+          color: $mainGreen;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.user_home{
+  .MuiLinearProgress-barColorPrimary{
+    background: $mainGreen;
+  }
+  .MuiLinearProgress-colorPrimary{
+    background: rgba($black, 0.2);
+  }
+
+  .referral_qr{
+    h3{
+      text-align: center;
+      font-weight: 500;
+    }
+    &__qr{
+      width: 180px;
+      height: 180px;
+      margin: 15px auto 0;
+      display: block;
+    }
+  }
+
+  .bonus{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 80px;
+    @media screen and (max-width: 900px){
+      flex-direction: column;
+    }
+    &__card{
+      width: 400px;
+      position: relative;
+      transition: 0.2s;
+      cursor: pointer;
+      @media screen and (max-width: 450px){
+        width: 100%;
+      }
+      &:hover{
+        filter: drop-shadow(0 40px 120px rgba(71, 0, 95, 0.14));
+      }
+      p{
+        position: absolute;
+        color: #fff;
+        top: 25%;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        z-index: 1;
+        font-weight: 500;
+        text-align: center;
+        font-size: 23px;
+      }
+      .id{
+        position: absolute;
+        color: #fff;
+        top: 15px;
+        right: 15px;
+        z-index: 1;
+        font-weight: 500;
+      }
+      .barcode{
+        width: 70%;
+        bottom: 8%;
+        position: absolute;
+        z-index: 1;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        background: #fff;
+      }
+      .cardb{
+        width: 100%;
+      }
+    }
+
+    &__content{
+      width: 400px;
+      @media screen and (max-width: 450px){
+        width: 100%;
+      }
+      ul{
+        li{
+          list-style: none;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 15px;
+          span{
+            font-weight: 500;
+          }
+          &:first-child{
+            span{
+              color: $markRed;
+            }
+          }
+        }
+      }
+      &__prices{
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      p{
+        margin-top: 20px;
+        font-size: 16px;
+      }
+      button{
+        padding: 10px 20px;
+        border: none;
+        background: $mainGradient;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 15px;
+        margin-top: 15px;
+        cursor: pointer;
+        @media screen and (max-width: 900px){
+          display: block;
+          margin: 15px auto 0;
+          text-align: center;
+        }
+      }
+    }
+    &__referral{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      svg{
+        &:first-child{
+          color: $linkBlue;
+        }
+        &:last-child{
+          width: 30px;
+          height: 30px;
+          color: $mainGreen;
+        }
+      }
+      p{
+        margin-top: 0;
+        //color: $linkBlue;
+        text-decoration: underline;
+      }
     }
   }
 }

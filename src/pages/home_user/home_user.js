@@ -14,22 +14,37 @@ import infoDelivery from '../../assets/gifs/delivery.gif'
 import infoHome from '../../assets/gifs/home.gif'
 import infoFast from '../../assets/gifs/fast.gif'
 
-import bonusPhone from '../../assets/images/phone.svg'
+import bonusCard from '../../assets/images/bonus_card.svg'
 import bonusPhoneBg from '../../assets/images/phone_bg.svg'
 
-import {IconX, IconLogin2, IconChevronLeft, IconChevronRight} from '@tabler/icons-react'
+import {IconX, IconLogin2, IconChevronLeft, IconChevronRight, IconCopy, IconQrcode, IconSquareRoundedCheck} from '@tabler/icons-react'
 import {Footer} from "../../components/footer";
 import {Card} from "../../components/card";
-import {useRef} from "react";
+import {useRef, useState} from "react";
+
+import LinearProgress from '@mui/material/LinearProgress';
+import {Popup} from "../../components/popup";
+
+import QRCode from "react-qr-code";
 
 
-
-export const Home = () => {
+export const HomeUser = () => {
     const scrollRef = useRef(null);
+    const [openQR, setOpenQR] = useState(false);
+    const [copyRef, setCopyRef] = useState(false);
 
+    const refUrl = 'https//lanchino.am/signup?ref=342423'
+
+    const copyText = () => {
+        navigator.clipboard.writeText(refUrl)
+        setCopyRef(true)
+        setTimeout(() => {
+            setCopyRef(false);
+        }, 1500)
+    }
 
     return(
-        <div className="home">
+        <div className="home user_home">
             <Navigation/>
 
             <div className="container">
@@ -130,29 +145,48 @@ export const Home = () => {
                     </div>
                 </div>
 
-                <div className="info_block">
-                    <h2>See what advantages we have!</h2>
+                {
+                    openQR ?
+                        <Popup content={
+                            <div className={'referral_qr'}>
+                                <h3>Your referral QR code</h3>
+                                <QRCode className={'referral_qr__qr'} value={refUrl}/>
+                            </div>
+                        } closeBtn={() => setOpenQR(false)}/>
+                        : null
+                }
+                <div className="bonus">
+                    <div className="bonus__card">
+                        <b className={'id'}>423425</b>
+                        <p>Bonus Card</p>
+                        <img className={'barcode'} src='https://pngimg.com/uploads/barcode/barcode_PNG4.png' alt=""/>
+                        <img className={'cardb'} src={bonusCard} alt="bonus card"/>
+                    </div>
+                    <div className="bonus__content">
+                        <ul>
+                            <li>Card Bonus <span>340</span></li>
+                            <li>Referral Bonus <span>20</span></li>
+                            <li>Your shops <span>3500</span></li>
+                        </ul>
+                        <LinearProgress variant="determinate" value={30}/>
+                        <div className="bonus__content__prices">
+                            <span>3500 AMD</span>
+                            <span>20000 AMD</span>
+                        </div>
 
-                    <div className="info_block__box">
-                        <div className="info_block__box__item">
-                            <img src={infoFood} alt="food"/>
-                            <p>Diverse and delicious foods that won't leave you hungry</p>
+                        <div className="bonus__referral">
+                            <p>{refUrl}</p>
+                            {
+                                !copyRef ?
+                                    <IconCopy onClick={copyText}/>
+                                    :
+                                    <IconSquareRoundedCheck/>
+
+                            }
+                            <IconQrcode onClick={() => setOpenQR(true)}/>
                         </div>
-                        <span/>
-                        <div className="info_block__box__item">
-                            <img src={infoFast} alt="food"/>
-                            <p>You will receive fast service and will not be late for your work</p>
-                        </div>
-                        <span/>
-                        <div className="info_block__box__item">
-                            <img src={infoHome} alt="food"/>
-                            <p>You will feel as comfortable as at home here</p>
-                        </div>
-                        <span/>
-                        <div className="info_block__box__item">
-                            <img src={infoDelivery} alt="food"/>
-                            <p>You can order and receive your order very quickly</p>
-                        </div>
+                        {/*<p>You can open referral link and get bonuses your referrals</p>*/}
+                        {/*<button>Open Referral Link</button>*/}
                     </div>
                 </div>
 
@@ -173,20 +207,6 @@ export const Home = () => {
                     </div>
                 </div>
 
-                <div className="bonus_info">
-
-                    <div className="bonus_info__box">
-                        <img src={bonusPhone} alt="bonus phone"/>
-                        <div className="bonus_info__box__text">
-                            <h2>Open Bonus Card</h2>
-                            <p>Create an account with us and get a BONUS CARD that will accumulate bonuses after every purchase.</p>
-                            <Link to={''}><IconLogin2/> Sign In For Open</Link>
-                        </div>
-                    </div>
-                    <div className="bonus_info__bg">
-
-                    </div>
-                </div>
             </div>
 
             <Footer/>
