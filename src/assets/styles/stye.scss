@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import "MUI";
 
 // @media screen and (max-width: 1060px)
 
@@ -983,6 +984,97 @@ body, *{
         margin-top: 0;
         //color: $linkBlue;
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background: url("../images/white_bg.svg") center left;
+  @media screen and (max-width: 900px){
+    background: url("../images/white_bg2.svg");
+    background-position-y: 15%;
+    background-position-x: 3%;
+  }
+  @media screen and (max-height: 600px) {
+    height: 600px;
+  }
+
+  .form-cont {
+    display: flex;
+    gap: 150px;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    button{
+      background: $mainGreen;
+      color: #fff;
+      border: none;
+      font-size: 17px;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .login-logo {
+      margin-bottom: 70px;
+      img{
+        width: 200px;
+      }
+    }
+    .login-form {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      .logo-title {
+        font-weight: 500;
+        span {
+          color: $mainGreen;
+        }
+      }
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .btn-box {
+          align-self: end;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .bottom-content {
+    position: absolute;
+    bottom: 25px;
+    z-index: 5;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    a {
+      color: $mainGreen;
+    }
+  }
+
+
+  @media screen and (max-width: 750px) {
+    .form-cont {
+      flex-direction: column;
+      gap: 0;
+      .login-logo {
+        margin-top: 0;
+        img {
+          width: 170px;
+        }
       }
     }
   }

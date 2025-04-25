@@ -1,0 +1,38 @@
+$mainGreen: #58D22D;
+
+.MuiSlider-track{
+  background: $mainGreen !important;
+  border: none !important;
+  //border-color: $mainGreen !important;
+}
+
+.MuiSlider-thumb{
+  background: $mainGreen !important;
+  &::before{
+    box-shadow: none !important;
+  }
+  &:hover{
+    box-shadow: 0 0 0 8px rgba($mainGreen, 0.1) !important;
+  }
+}
+
+.MuiCheckbox-colorPrimary, .MuiRadio-colorPrimary{
+  &:hover{
+    background: rgba($mainGreen, 0.04) !important;
+  }
+  &.Mui-checked{
+    color: $mainGreen !important;
+  }
+}
+
+.MuiInput-root{
+  &::after{
+    border-color: $mainGreen !important;
+  }
+}
+
+.MuiInputLabel-root, .MuiFormLabel-root{
+  &.Mui-focused{
+    color: $mainGreen !important;
+  }
+}
