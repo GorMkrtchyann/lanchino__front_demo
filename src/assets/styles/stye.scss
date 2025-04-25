@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+// @media screen and (max-width: 1060px)
 
 $font: "Rubik", sans-serif;
 $black: #222C54;
@@ -22,13 +23,47 @@ body, *{
   margin: 0 auto;
 }
 
+.navigation_top{
+  background: $lightWhite;
+  padding: 13px 0;
+  height: 45px;
+  box-sizing: border-box;
+  //position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #EFEFEF;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    ul{
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+      @media screen and (max-width: 480px){
+        gap: 15px;
+      }
+      a{
+        text-decoration: none;
+        color: $black;
+        font-weight: 500;
+        &.mark{
+          color: $markRed;
+        }
+        @media screen and (max-width: 480px){
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
 .navigation{
   display: flex;
   align-items: center;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
-  left: 0px;
+  left: 0;
   background: $lightWhite;
   padding: 13px 0;
   z-index: 5;
@@ -306,6 +341,7 @@ body, *{
   right: 0;
   gap: 10px;
   filter: drop-shadow(0 40px 120px rgba(71, 0, 95, 0.17));
+  padding-left: 50px;
   &__box{
     background: #fff;
     padding: 15px;
@@ -356,6 +392,20 @@ body, *{
     div {
       display: flex;
       gap: 20px;
+      a{
+        background: $lightGrey;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 10px;
+        img{
+          height: 35px;
+        }
+      }
     }
   }
 
@@ -494,10 +544,10 @@ body, *{
 }
 
 .home{
-  margin-top: 90px;
   background: #fff;
   &__slider{
     width: 100%;
+    margin-top: 40px;
     .carousel-status{
       display: none !important;
     }
@@ -677,7 +727,7 @@ body, *{
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 250px;
+    margin-top: 200px;
     &__box{
       position: relative;
       z-index: 1;

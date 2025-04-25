@@ -64,13 +64,13 @@ export const Footer = () => {
                                 <a href={'https://www.instagram.com/rolleno_/'} target={'_blank'}><img src={instagram} alt="instagram"/></a>
                             </div>
                         </div> : null}
-                        {/*<div className="apps">*/}
-                        {/*    <p>Download our app</p>*/}
-                        {/*    <div>*/}
-                        {/*        <img src={googlePlay} alt="google play"/>*/}
-                        {/*        <img src={appStore} alt="app store"/>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
+                        <div className="apps">
+                            <p>Download our app</p>
+                            <div>
+                                <img src={googlePlay} alt="google play"/>
+                                <img src={appStore} alt="app store"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
