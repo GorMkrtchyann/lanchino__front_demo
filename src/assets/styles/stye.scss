@@ -989,7 +989,6 @@ body, *{
   }
 }
 
-
 .login-container {
   width: 100%;
   height: 100vh;
@@ -1023,6 +1022,7 @@ body, *{
       font-size: 17px;
       padding: 10px 20px;
       border-radius: 10px;
+      cursor: pointer;
     }
     .login-logo {
       margin-bottom: 70px;
@@ -1076,6 +1076,344 @@ body, *{
           width: 170px;
         }
       }
+    }
+  }
+}
+
+.signUp{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  background-size: cover;
+  background: url("../images/white_bg.svg") center left;
+  @media screen and (max-width: 900px){
+    background: url("../images/white_bg2.svg");
+    background-position-y: 15%;
+    background-position-x: 3%;
+  }
+  &__middle{
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    h1{
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+      &:first-letter{
+        color: $mainGreen;
+      }
+    }
+    form{
+      display: flex;
+      gap: 20px;
+      & > div{
+        width: 50% ;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        button{
+          align-self: flex-end;
+          margin-top: 15px;
+        }
+      }
+      @media screen and (max-width: 460px){
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+        & > div{
+          width: 100% !important;
+        }
+        margin: 0 auto;
+      }
+    }
+    @media screen and (max-width: 1045px){
+      background: #fff;
+      z-index: 1;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  }
+  button{
+    background: $mainGreen;
+    color: #fff;
+    border: none;
+    font-size: 17px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .bottomText{
+    position: absolute;
+    bottom: 25px;
+    margin: 0 auto ;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    a{
+      color: $mainGreen;
+    }
+    @media screen and (max-width: 460px){
+      text-align: center;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      width: fit-content;
+    }
+  }
+
+  @media screen and (max-width: 460px){
+    overflow-y: scroll;
+    flex-direction: column;
+    padding-bottom: 40px;
+    &__left{
+      position: relative;
+      img{
+        &:last-child{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+.store{
+  background: $lightWhite;
+  width: 100%;
+  .navigation{
+    background: #fff;
+    &_top{
+      background: #fff;
+    }
+  }
+  &__top{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    &__category{
+      width: 20%;
+      border-radius: 20px;
+      overflow: hidden;
+      @media screen and (max-width: 1060px){
+        width: 35%;
+      }
+      &__img{
+        width: 100%;
+        height: 90px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+          height: 90%;
+        }
+      }
+      &__text{
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(50deg, #15CF74 0%, #7ED63E 67%, #09C272 100%);
+        color: #fff;
+        box-sizing: border-box;
+        padding: 15px;
+        p{
+          font-weight: 500;
+          font-size: 19px;
+        }
+        svg{
+          background: rgba(255, 255, 255, 0.4);
+          border-radius: 50%;
+          padding: 3px;
+        }
+      }
+    }
+    &__search{
+      width: 60%;
+      position: relative;
+      z-index: 2;
+      h2{
+        font-size: 30px;
+      }
+      &.active{
+        filter: drop-shadow(0 40px 120px rgba(71, 0, 95, 0.14));
+      }
+      &__box{
+        width: 100%;
+        position: relative;
+        background: #fff;
+        height: 70px;
+        box-sizing: border-box;
+        overflow: hidden;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 10px;
+        input{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border: none;
+          outline: none;
+          padding: 15px;
+          box-sizing: border-box;
+          padding-left: 25px;
+        }
+        button{
+          background: $markRed;
+          height: 60px;
+          width: 60px;
+          border-radius: 50px;
+          position: relative;
+          z-index: 1;
+          border: none;
+          color: #fff;
+          margin-right: 5px;
+          cursor: pointer;
+        }
+        &.active{
+          border-radius: 35px 35px 0 0;
+        }
+      }
+      &__result{
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        background: #fff;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 0 0 20px 20px;
+        &__item{
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 10px;
+          padding: 5px;
+          cursor: pointer;
+          border-radius: 15px;
+          &:hover{
+            background: $lightGrey;
+          }
+          p{
+            text-transform: capitalize;
+          }
+          b{
+            display: block;
+            margin: 0 0 0 auto;
+            font-weight: 500;
+            font-size: 17px;
+            span{
+              font-size: 13px;
+            }
+          }
+          img{
+            width: 80px;
+            border-radius: 10px;
+          }
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &__filter{
+      width: 20%;
+      position: relative;
+      &__opener{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        background: #EDEDED;
+        border-radius: 20px;
+        padding: 20px;
+        height: 70px;
+        cursor: pointer;
+        p{
+          margin-left: 10px;
+        }
+        &.active{
+          border-radius: 20px 20px 0 0;
+        }
+      }
+      &__options{
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        background: #EDEDED;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 0 0 20px 20px;
+        &__item{
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 5px;
+          padding: 5px;
+          cursor: pointer;
+          border-radius: 15px;
+          &:hover{
+            background: $lightWhite;
+          }
+          p{
+            text-transform: capitalize;
+          }
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 1060px){
+      flex-wrap: wrap;
+    }
+    @media screen and (max-width: 700px){
+      flex-direction: column;
+      gap: 35px;
+      & > div{
+        width: 100%;
+      }
+    }
+  }
+  &__middle{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 5fr));
+    gap: 30px;
+    margin-top: 50px;
+    .card{
+      width: 100%;
+      min-width: 230px;
+      background: #fff;
+      @media screen and (max-width: 560px){
+        &__text{
+          height: 150px;
+        }
+        &__img{
+          height: 170px;
+        }
+      }
+    }
+  }
+  &__end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    .Mui-selected{
+      background: $mainGreen !important;
+      color: #fff !important;
     }
   }
 }

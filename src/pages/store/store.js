@@ -1,0 +1,149 @@
+import {Navigation} from "../../components/navigation";
+import {IconChevronDown, IconSearch, IconAdjustments} from '@tabler/icons-react'
+import fastFood from '../../assets/gifs/french-fries.gif'
+import {Card} from "../../components/card";
+import {Checkbox, Pagination} from "@mui/material";
+import {Footer} from "../../components/footer";
+import {useState} from "react";
+
+
+export const Store = () => {
+    const [searchResultsOpen, setSearchResultsOpen] = useState(false);
+    const [filterOpen, setFilterOpen] = useState(false);
+
+    const searchBtn = () => {
+        setSearchResultsOpen(true)
+        setFilterOpen(false)
+    }
+
+    const searchItemClick = () => {
+        setSearchResultsOpen(false)
+    }
+
+    const filterBtn = () => {
+        setFilterOpen(!filterOpen)
+        setSearchResultsOpen(false)
+    }
+
+    return(
+        <div className={'store'}>
+            <Navigation/>
+
+            <div className="container">
+                <div className="store__top">
+                    <div className="store__top__category">
+                        <div className="store__top__category__img">
+                            <img src={fastFood} alt=""/>
+                        </div>
+                        <div className="store__top__category__text">
+                            <p>Category</p>
+                            <IconChevronDown/>
+                        </div>
+                    </div>
+                    <div className={`store__top__search ${searchResultsOpen ? 'active' : ''}`}>  {/* active*/}
+                        <h2>Fast Food</h2>
+                        <div className={`store__top__search__box ${searchResultsOpen ? 'active' : ''}`}> {/* active*/}
+                            <input type="text" placeholder="Search in Fast Food"/>
+                            <button onClick={searchBtn}><IconSearch/></button>
+                        </div>
+                        {
+                            searchResultsOpen ?
+                                <div className="store__top__search__result">
+                                    <div className="store__top__search__result__item"
+                                        onClick={searchItemClick}
+                                    >
+                                        <img
+                                            src="https://th.bing.com/th/id/OIP.-hqL4TRpBi9GBM8L73e2tQHaE8?w=960&h=640&rs=1&pid=ImgDetMain"
+                                            alt=""/>
+                                        <p>country potatoes</p>
+                                        <b>300 <span>AMD</span></b>
+                                    </div>
+                                    <div className="store__top__search__result__item" onClick={searchItemClick}>
+                                        <img
+                                            src="https://th.bing.com/th/id/OIP.-hqL4TRpBi9GBM8L73e2tQHaE8?w=960&h=640&rs=1&pid=ImgDetMain"
+                                            alt=""/>
+                                        <p>country potatoes</p>
+                                        <b>300 <span>AMD</span></b>
+                                    </div>
+                                    <div className="store__top__search__result__item" onClick={searchItemClick}>
+                                        <img
+                                            src="https://th.bing.com/th/id/OIP.-hqL4TRpBi9GBM8L73e2tQHaE8?w=960&h=640&rs=1&pid=ImgDetMain"
+                                            alt=""/>
+                                        <p>country potatoes</p>
+                                        <b>300 <span>AMD</span></b>
+                                    </div>
+                                </div>
+                                :
+                                null
+                        }
+                    </div>
+                    <div className="store__top__filter">
+                        <div className={`store__top__filter__opener ${filterOpen ? 'active' : ''}`}
+                            onClick={filterBtn}
+                        > {/* active*/}
+                            <p>Filter</p>
+                            <IconAdjustments/>
+                        </div>
+
+                        {
+                            filterOpen ?
+                                <div className="store__top__filter__options">
+                                    <div className="store__top__filter__options__item">
+                                        <Checkbox
+                                            // checked={}
+                                            // onChange={handleChange}
+                                            inputProps={{'aria-label': 'controlled'}}
+                                        />
+                                        <p>Filter Name</p>
+                                    </div>
+                                    <div className="store__top__filter__options__item">
+                                        <Checkbox
+                                            // checked={}
+                                            // onChange={handleChange}
+                                            inputProps={{'aria-label': 'controlled'}}
+                                        />
+                                        <p>Filter Name</p>
+                                    </div>
+                                    <div className="store__top__filter__options__item">
+                                        <Checkbox
+                                            // checked={}
+                                            // onChange={handleChange}
+                                            inputProps={{'aria-label': 'controlled'}}
+                                        />
+                                        <p>Filter Name</p>
+                                    </div>
+                                </div>
+                                :
+                                null
+                        }
+                    </div>
+                </div>
+
+                <div className="store__middle">
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                </div>
+
+                <div className="store__end">
+                    <Pagination count={10} defaultPage={3}/>
+                </div>
+            </div>
+
+            <Footer/>
+        </div>
+    )
+}
