@@ -1214,7 +1214,7 @@ body, *{
       width: 20%;
       //overflow: hidden;
       position: relative;
-      z-index: 1;
+      z-index: 3;
       @media screen and (max-width: 1060px){
         width: 35%;
       }
@@ -1261,7 +1261,7 @@ body, *{
       &__more{
         position: absolute;
         width: 100%;
-        z-index: 1;
+        z-index: 3;
         background: #fff;
         padding: 10px;
         box-sizing: border-box;
