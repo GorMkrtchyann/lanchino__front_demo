@@ -7,18 +7,37 @@ import {Footer} from "../../components/footer";
 import {useEffect, useState} from "react";
 import {Loader} from "../../components/loader";
 import {useParams} from "react-router";
+import {Images} from "../../assets/images/images";
+import {useNavigate} from "react-router-dom";
 
 
 export const Store = () => {
     const [searchResultsOpen, setSearchResultsOpen] = useState(false);
     const [filterOpen, setFilterOpen] = useState(false);
+    const [categoryOpen, setCategoryOpen] = useState(false);
     const param = useParams();
 
     const [title, setTitle] = useState(null);
+    const [categoryImage, setCategoryImage] = useState(null);
+
+    const navigate = useNavigate()
 
     const searchBtn = () => {
         setSearchResultsOpen(true)
         setFilterOpen(false)
+        setCategoryOpen(false)
+    }
+
+    const categoryBtn = () => {
+        setCategoryOpen(!categoryOpen)
+        setSearchResultsOpen(false)
+        setFilterOpen(false)
+    }
+
+    const categoryItemBtn = (link) => {
+        navigate(`/store/${link}`)
+        setCategoryOpen(!categoryOpen)
+        navigate(0)
     }
 
     const searchItemClick = () => {
@@ -28,11 +47,13 @@ export const Store = () => {
     const filterBtn = () => {
         setFilterOpen(!filterOpen)
         setSearchResultsOpen(false)
+        setCategoryOpen(false)
     }
 
     useEffect(() => {
         setTimeout(() => {
             setTitle(param.category.replace('-', ' '))
+            setCategoryImage(param.category.replace('-', '_'))
         }, 2000)
     }, [])
 
@@ -49,12 +70,45 @@ export const Store = () => {
                 <div className="store__top">
                     <div className="store__top__category">
                         <div className="store__top__category__img">
-                            <img src={fastFood} alt=""/>
+                            <img src={Images[categoryImage]} alt=""/>
                         </div>
-                        <div className="store__top__category__text">
+                        <div className={`store__top__category__text ${categoryOpen ? 'active' : ''}`} onClick={categoryBtn}>
                             <p>Category</p>
                             <IconChevronDown/>
                         </div>
+
+                        {
+                            categoryOpen ?
+                                <div className="store__top__category__more">
+                            <div className={`store__top__category__more__item ${param.category.includes('cold') ? 'active' : ''}`}
+                                 onClick={() => categoryItemBtn('cold-drinks')}>
+                                <img src={Images.cold_drinks} alt=""/>
+                                <p>Cold Drinks</p>
+                            </div>
+                            <div className={`store__top__category__more__item ${param.category.includes('hot') ? 'active' : ''}`}
+                                 onClick={() => categoryItemBtn('hot-drinks')}>
+                                <img src={Images.hot_drinks} alt=""/>
+                                <p>Hot Drinks</p>
+                            </div>
+                            <div className={`store__top__category__more__item ${param.category.includes('fast') ? 'active' : ''}`}
+                                 onClick={() => categoryItemBtn('fast-food')}>
+                                <img src={Images.fast_food} alt=""/>
+                                <p>Fast Food</p>
+                            </div>
+                            <div className={`store__top__category__more__item ${param.category.includes('main') ? 'active' : ''}`}
+                                 onClick={() => categoryItemBtn('main-food')}>
+                                <img src={Images.main_food} alt=""/>
+                                <p>Food</p>
+                            </div>
+                            <div className={`store__top__category__more__item ${param.category.includes('desserts') ? 'active' : ''}`}
+                                 onClick={() => categoryItemBtn('desserts')}>
+                                <img src={Images.desserts} alt=""/>
+                                <p>Desserts</p>
+                            </div>
+                        </div>
+                                :
+                                null
+                        }
                     </div>
                     <div className={`store__top__search ${searchResultsOpen ? 'active' : ''}`}>  {/* active*/}
                         <h2>{title}</h2>

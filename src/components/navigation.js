@@ -1,5 +1,5 @@
 import {Images} from "../assets/images/images";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {useState} from "react";
 import {IconX, IconMenu2} from '@tabler/icons-react'
@@ -8,6 +8,8 @@ import {IconX, IconMenu2} from '@tabler/icons-react'
 export const Navigation = () => {
     const [languageOpen, setLanguageOpen] = useState(false);
     const [language, setLanguage] = useState('en');
+    const navigate = useNavigate()
+
 
     const [openMobMenu, setOpenMobMenu] = useState(false);
 
@@ -35,7 +37,7 @@ export const Navigation = () => {
             <div className={'navigation'}>
                 <div className="container">
                     <div className="navigation__left">
-                        <img className={'logo'} src={Images.GreenLogo} alt="lanchino logo"/>
+                        <img onClick={() => navigate('/')} className={'logo'} src={Images.GreenLogo} alt="lanchino logo"/>
                         <ul>
                             <li><a href={'/store/menu'}>Menu</a></li>
                             <li><a href={'/store/best-sell'}>Best Sell</a></li>
@@ -77,9 +79,9 @@ export const Navigation = () => {
                         <div className={`navigation__mobile ${openMobMenu ? ' open' : ''}`}>
                             <IconX className={'close-icon'} onClick={() => setOpenMobMenu(false)}/>
                             <ul>
-                                <li><Link to={'/menu'}>Menu</Link></li>
-                                <li><Link to={'/best-sell'}>Best Sell</Link></li>
-                                <li><Link to={'/new-products'} className={'mark'}>New Products</Link></li>
+                                <li><Link to={'/store/menu'}>Menu</Link></li>
+                                <li><Link to={'/store/best-sell'}>Best Sell</Link></li>
+                                <li><Link to={'/store/new-products'} className={'mark'}>New Products</Link></li>
                                 <li>Cart</li>
                             </ul>
                             <a href="tel:">+374 (93) 654-321</a>

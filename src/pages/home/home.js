@@ -1,6 +1,6 @@
 import {Navigation} from "../../components/navigation";
 import Slider from "react-slick";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import drinksGif from '../../assets/gifs/cold-drink.gif'
@@ -26,6 +26,7 @@ import {useRef} from "react";
 
 export const Home = () => {
     const scrollRef = useRef(null);
+    const navigate = useNavigate()
 
 
     return(
@@ -90,14 +91,14 @@ export const Home = () => {
                     <h2>Choose a category and make purchases!</h2>
 
                     <div className="category__box">
-                        <div className="category__box__item">
+                        <div className="category__box__item" onClick={() => navigate('/store/cold-drinks')}>
                             <div className="category__box__item__img">
                                 <img src={drinksGif} alt=""/>
                             </div>
                             <p>Drinks</p>
                         </div>
 
-                        <div className="category__box__item">
+                        <div className="category__box__item" onClick={() => navigate('/store/fast-food')}>
                             <div className="category__box__item__img">
                                 <img src={fastFood} alt=""/>
                                 {/*<img src={coffeeGif} alt=""/>*/}
@@ -105,7 +106,7 @@ export const Home = () => {
                             <p>Fast Food</p>
                         </div>
 
-                        <div className="category__box__item">
+                        <div className="category__box__item" onClick={() => navigate('/store/desserts')}>
                             <div className="category__box__item__img">
                                 <img src={dessert} alt=""/>
                                 {/*<img src={coffeeGif} alt=""/>*/}
@@ -113,7 +114,7 @@ export const Home = () => {
                             <p>Dessert</p>
                         </div>
 
-                        <div className="category__box__item">
+                        <div className="category__box__item" onClick={() => navigate('/store/hot-food')}>
                             <div className="category__box__item__img">
                                 <img src={food} alt=""/>
                                 {/*<img src={coffeeGif} alt=""/>*/}
@@ -121,7 +122,7 @@ export const Home = () => {
                             <p>Food</p>
                         </div>
 
-                        <div className="category__box__item">
+                        <div className="category__box__item" onClick={() => navigate('/store/hot-drinks')}>
                             <div className="category__box__item__img">
                                 <img src={coffeeGif} alt=""/>
                             </div>
