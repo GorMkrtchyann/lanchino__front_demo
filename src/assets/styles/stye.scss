@@ -24,6 +24,19 @@ body, *{
   margin: 0 auto;
 }
 
+.loader{
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background: #fbfbfb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    width: 400px;
+  }
+}
+
 .navigation_top{
   background: $lightWhite;
   padding: 13px 0;
@@ -1182,7 +1195,6 @@ body, *{
   }
 }
 
-
 .store{
   background: $lightWhite;
   width: 100%;
@@ -1242,6 +1254,7 @@ body, *{
       z-index: 2;
       h2{
         font-size: 30px;
+        text-transform: capitalize;
       }
       &.active{
         filter: drop-shadow(0 40px 120px rgba(71, 0, 95, 0.14));

@@ -4,12 +4,17 @@ import fastFood from '../../assets/gifs/french-fries.gif'
 import {Card} from "../../components/card";
 import {Checkbox, Pagination} from "@mui/material";
 import {Footer} from "../../components/footer";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {Loader} from "../../components/loader";
+import {useParams} from "react-router";
 
 
 export const Store = () => {
     const [searchResultsOpen, setSearchResultsOpen] = useState(false);
     const [filterOpen, setFilterOpen] = useState(false);
+    const param = useParams();
+
+    const [title, setTitle] = useState(null);
 
     const searchBtn = () => {
         setSearchResultsOpen(true)
@@ -25,8 +30,19 @@ export const Store = () => {
         setSearchResultsOpen(false)
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setTitle(param.category.replace('-', ' '))
+        }, 2000)
+    }, [])
+
     return(
-        <div className={'store'}>
+        <>
+            {
+                !title ?
+                    <Loader/>
+                    :
+                    <div className={'store'}>
             <Navigation/>
 
             <div className="container">
@@ -41,7 +57,7 @@ export const Store = () => {
                         </div>
                     </div>
                     <div className={`store__top__search ${searchResultsOpen ? 'active' : ''}`}>  {/* active*/}
-                        <h2>Fast Food</h2>
+                        <h2>{title}</h2>
                         <div className={`store__top__search__box ${searchResultsOpen ? 'active' : ''}`}> {/* active*/}
                             <input type="text" placeholder="Search in Fast Food"/>
                             <button onClick={searchBtn}><IconSearch/></button>
@@ -145,5 +161,7 @@ export const Store = () => {
 
             <Footer/>
         </div>
+            }
+        </>
     )
 }

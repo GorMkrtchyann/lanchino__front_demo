@@ -37,9 +37,9 @@ export const Navigation = () => {
                     <div className="navigation__left">
                         <img className={'logo'} src={Images.GreenLogo} alt="lanchino logo"/>
                         <ul>
-                            <li><Link to={'/menu'}>Menu</Link></li>
-                            <li><Link to={'/best-sell'}>Best Sell</Link></li>
-                            <li><Link to={'/new-products'} className={'mark'}>New Products</Link></li>
+                            <li><a href={'/store/menu'}>Menu</a></li>
+                            <li><a href={'/store/best-sell'}>Best Sell</a></li>
+                            <li><a href={'/store/new-products'} className={'mark'}>New Products</a></li>
                         </ul>
                     </div>
                     <div className="navigation__right">
