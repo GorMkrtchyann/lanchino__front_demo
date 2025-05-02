@@ -4,6 +4,7 @@ import {HomeUser} from "./pages/home_user/home_user";
 import {LogIn} from "./pages/login/logIn";
 import {SignUp} from "./pages/signup/signUp";
 import {Store} from "./pages/store/store";
+import {Info} from "./pages/info/info";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/store/:category" element={<Store/>} />
       <Route path="/login" element={<LogIn/>} />
       <Route path="/signup" element={<SignUp/>} />
+      <Route path="/info" element={<Info/>} />
     </Routes>
   );
 }

@@ -80,32 +80,37 @@ export const Store = () => {
                         {
                             categoryOpen ?
                                 <div className="store__top__category__more">
-                            <div className={`store__top__category__more__item ${param.category.includes('cold') ? 'active' : ''}`}
-                                 onClick={() => categoryItemBtn('cold-drinks')}>
-                                <img src={Images.cold_drinks} alt=""/>
-                                <p>Cold Drinks</p>
-                            </div>
-                            <div className={`store__top__category__more__item ${param.category.includes('hot') ? 'active' : ''}`}
-                                 onClick={() => categoryItemBtn('hot-drinks')}>
-                                <img src={Images.hot_drinks} alt=""/>
-                                <p>Hot Drinks</p>
-                            </div>
-                            <div className={`store__top__category__more__item ${param.category.includes('fast') ? 'active' : ''}`}
-                                 onClick={() => categoryItemBtn('fast-food')}>
-                                <img src={Images.fast_food} alt=""/>
-                                <p>Fast Food</p>
-                            </div>
-                            <div className={`store__top__category__more__item ${param.category.includes('main') ? 'active' : ''}`}
-                                 onClick={() => categoryItemBtn('main-food')}>
-                                <img src={Images.main_food} alt=""/>
-                                <p>Food</p>
-                            </div>
-                            <div className={`store__top__category__more__item ${param.category.includes('desserts') ? 'active' : ''}`}
-                                 onClick={() => categoryItemBtn('desserts')}>
-                                <img src={Images.desserts} alt=""/>
-                                <p>Desserts</p>
-                            </div>
-                        </div>
+                                    <div
+                                        className={`store__top__category__more__item ${param.category.includes('cold') ? 'active' : ''}`}
+                                        onClick={() => categoryItemBtn('cold-drinks')}>
+                                        <img src={Images.cold_drinks} alt=""/>
+                                        <p>Cold Drinks</p>
+                                    </div>
+                                    <div
+                                        className={`store__top__category__more__item ${param.category.includes('hot') ? 'active' : ''}`}
+                                        onClick={() => categoryItemBtn('hot-drinks')}>
+                                        <img src={Images.hot_drinks} alt=""/>
+                                        <p>Hot Drinks</p>
+                                    </div>
+                                    <div
+                                        className={`store__top__category__more__item ${param.category.includes('fast') ? 'active' : ''}`}
+                                        onClick={() => categoryItemBtn('fast-food')}>
+                                        <img src={Images.fast_food} alt=""/>
+                                        <p>Fast Food</p>
+                                    </div>
+                                    <div
+                                        className={`store__top__category__more__item ${param.category.includes('main') ? 'active' : ''}`}
+                                        onClick={() => categoryItemBtn('main-food')}>
+                                        <img src={Images.main_food} alt=""/>
+                                        <p>Food</p>
+                                    </div>
+                                    <div
+                                        className={`store__top__category__more__item ${param.category.includes('desserts') ? 'active' : ''}`}
+                                        onClick={() => categoryItemBtn('desserts')}>
+                                        <img src={Images.desserts} alt=""/>
+                                        <p>Desserts</p>
+                                    </div>
+                                </div>
                                 :
                                 null
                         }
